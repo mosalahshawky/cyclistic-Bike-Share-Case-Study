@@ -7,18 +7,18 @@ library(tidyverse)
 library(lubridate)
 
 #03- import all the CSV Files into R
-tripdata_202101 <- read_csv("D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/202101-divvy-tripdata.csv")
-tripdata_202102 <- read_csv("D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/202102-divvy-tripdata.csv")
-tripdata_202103 <- read_csv("D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/202103-divvy-tripdata.csv")
-tripdata_202104 <- read_csv("D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/202104-divvy-tripdata.csv")
-tripdata_202105 <- read_csv("D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/202105-divvy-tripdata.csv")
-tripdata_202106 <- read_csv("D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/202106-divvy-tripdata.csv")
-tripdata_202107 <- read_csv("D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/202107-divvy-tripdata.csv")
-tripdata_202108 <- read_csv("D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/202108-divvy-tripdata.csv")
-tripdata_202109 <- read_csv("D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/202109-divvy-tripdata.csv")
-tripdata_202110 <- read_csv("D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/202110-divvy-tripdata.csv")
-tripdata_202111 <- read_csv("D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/202111-divvy-tripdata.csv")
-tripdata_202112 <- read_csv("D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/202112-divvy-tripdata.csv")
+tripdata_202101 <- read_csv(".../Data/202101-divvy-tripdata.csv")
+tripdata_202102 <- read_csv(".../Data/202102-divvy-tripdata.csv")
+tripdata_202103 <- read_csv(".../Data/202103-divvy-tripdata.csv")
+tripdata_202104 <- read_csv(".../Data/202104-divvy-tripdata.csv")
+tripdata_202105 <- read_csv(".../Data/202105-divvy-tripdata.csv")
+tripdata_202106 <- read_csv(".../Data/202106-divvy-tripdata.csv")
+tripdata_202107 <- read_csv(".../Data/202107-divvy-tripdata.csv")
+tripdata_202108 <- read_csv(".../Data/202108-divvy-tripdata.csv")
+tripdata_202109 <- read_csv(".../Data/202109-divvy-tripdata.csv")
+tripdata_202110 <- read_csv(".../Data/202110-divvy-tripdata.csv")
+tripdata_202111 <- read_csv(".../Data/202111-divvy-tripdata.csv")
+tripdata_202112 <- read_csv(".../Data/202112-divvy-tripdata.csv")
 
 #04- Merge all the files in to one
 tripdata <- rbind(tripdata_202101, 
@@ -101,26 +101,17 @@ tripdata_v2 %>%
 
 #15- export data for number_of_rides per day_of_week 7 member type
 No_of_rides_per_day <- aggregate(tripdata_v2$ride_length ~ tripdata_v2$member_casual+ tripdata_v2$day_of_week, FUN = length)
-write.csv(No_of_rides_per_day, file ="D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/No_of_rides_per_day.csv")
+write.csv(No_of_rides_per_day, file =".../Data/No_of_rides_per_day.csv")
 
 
 #16- export data for number_of_rides per month & member type
 No_of_rides_per_month<- aggregate(tripdata_v2$ride_length ~ tripdata_v2$member_casual+ tripdata_v2$month, FUN = length)
-write.csv(No_of_rides_per_month, file ="D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/No_of_rides_per_month.csv")
+write.csv(No_of_rides_per_month, file =".../Data/No_of_rides_per_month.csv")
 
 #16- export data shows average_duration per day_of_week & member type
 avr_duration_per_ride_per_day <- aggregate(tripdata_v2$ride_length ~ tripdata_v2$member_casual+ tripdata_v2$day_of_week, FUN = mean)
-write.csv(avr_duration_per_ride_per_day, file ="D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/avr_duration_per_ride_per_day.csv")
+write.csv(avr_duration_per_ride_per_day, file =".../Data/avr_duration_per_ride_per_day.csv")
 
 #17- export data shows average_duration per Month & member type
 avr_duration_per_ride_per_month<- aggregate(tripdata_v2$ride_length ~ tripdata_v2$member_casual+ tripdata_v2$month, FUN = mean)
-write.csv(avr_duration_per_ride_per_month, file ="D:/Case Studies/track 1/How does a bike-share navigate speedy success/Data/avr_duration_per_ride_per_month.csv")
-
-
-
-glimpse(tripdata)
-glimpse(tripdata_v2)
-glimpse(No_of_rides_per_day)
-view(tripdata_v2$month)
-colSums(is.na(tripdata))
-
+write.csv(avr_duration_per_ride_per_month, file =".../Data/avr_duration_per_ride_per_month.csv")
